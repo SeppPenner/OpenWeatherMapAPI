@@ -1,6 +1,5 @@
 # OpenWeatherMapAPI for free servises
-My releasen of openweathermapapi for net framework 4.6.1 
-You can get all what openweathermap can given by api
+My release of openweathermap api for net framework 4.6.1
 -----
 
 # Download dll
