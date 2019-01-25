@@ -3,7 +3,7 @@ My release of openweathermap api for net framework 4.6.1
 -----
 
 # Download dll
-http://eliseevtech.ru/file/openweathermapapidll/OpenWeatherMapApi.dll
+http://eliseevtech.ru/file/openweathermap/OpenWeatherMapApi.dll
 # Usage
 First - get your api key from openweathermap.org
 </br>Next add OpenWeatherMapApi.dll to your project
