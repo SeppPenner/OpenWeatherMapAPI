@@ -9,12 +9,13 @@ using System.Threading.Tasks;
 namespace OpenWeatherMapApi.Tests
 {
     [TestClass()]
-    public class OpenWeatherMapApiTests
+    public class OpenWeatherMapApi
     {
+        string Token = "SECRET"; //token from OpenWeatherMap
         [TestMethod()]
         public void SetParams()
         {
-            OpenWeatherMapApi OWM = new OpenWeatherMapApi("token");
+            OpenWeatherMap OWM = new OpenWeatherMap(Token);
             OWM.Lang = "us";
             Assert.AreEqual("us", OWM.Lang);
             OWM.Units = "metric";
@@ -26,13 +27,15 @@ namespace OpenWeatherMapApi.Tests
         [TestMethod()]
         public void CurrentTest()
         {
-            Assert.Fail();
+            OpenWeatherMap OWM = new OpenWeatherMap(Token);
+            Assert.AreEqual("Moscow", OWM.Current("moscow").name);
         }
 
         [TestMethod()]
         public void ForecastTest()
         {
-            Assert.Fail();
+            OpenWeatherMap OWM = new OpenWeatherMap(Token);
+            Assert.AreEqual("Moscow", OWM.Forecast("moscow").city.name);
         }
     }
 }

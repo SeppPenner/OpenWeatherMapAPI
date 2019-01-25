@@ -9,10 +9,9 @@ using Newtonsoft.Json;
 
 namespace OpenWeatherMapApi
 {
-    public class OpenWeatherMapApi
+    public class OpenWeatherMap
     {
         readonly string openWeatherLink = "https://api.openweathermap.org/data/2.5/";
-        readonly List<string> specialParams = new List<string>();
         readonly string token;
 
         private string lang = "&lang=us";
@@ -39,6 +38,9 @@ namespace OpenWeatherMapApi
 
         public WebProxy proxy; //прокси
 
+
+
+
         private bool useProxy { get; set; }
         /// <summary>
         /// set true proxy only if proxy is no null
@@ -50,7 +52,7 @@ namespace OpenWeatherMapApi
         /// Init
         /// </summary>
         /// <param name="_token">ключ</param>
-        public OpenWeatherMapApi(string _token)
+        public OpenWeatherMap(string _token)
         {
             token = _token;
         }
@@ -62,7 +64,7 @@ namespace OpenWeatherMapApi
         /// <param name="_token">your token</param>
         /// <param name="_units">temp units (can be Fahrenheit(use "imperial") or Celsius(use "metric") or Kelvin(use "kelvin")) </param>
         /// <param name="_lang">set lang (Arabic - ar, Bulgarian - bg, Catalan - ca, Czech - cz, German - de, Greek - el, English - en, Persian (Farsi) - fa, Finnish - fi, French - fr, Galician - gl, Croatian - hr, Hungarian - hu, Italian - it, Japanese - ja, Korean - kr, Latvian - la, Lithuanian - lt, Macedonian - mk, Dutch - nl, Polish - pl, Portuguese - pt, Romanian - ro, Russian - ru, Swedish - se, Slovak - sk, Slovenian - sl, Spanish - es, Turkish - tr, Ukrainian - ua, Vietnamese - vi, Chinese Simplified - zh_cn, Chinese Traditional - zh_tw.)</param>
-        public OpenWeatherMapApi(string _token, string _units, string _lang)
+        public OpenWeatherMap(string _token, string _units, string _lang)
         {
             token = _token;
             Units = _units;
