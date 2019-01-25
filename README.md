@@ -4,7 +4,7 @@ You can get all what openweathermap can given by api
 -----
 
 # Download dll
-http://eliseevtech.ru/FILE/OpenWeatherMapApiDll/OpenWeatherMapApi.dll
+http://eliseevtech.ru/file/openweathermapapidll/OpenWeatherMapApi.dll
 # Usage
 First - get your api key from openweathermap.org
 </br>Next add OpenWeatherMapApi.dll to your project
