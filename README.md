@@ -12,13 +12,13 @@ First - get your api key from openweathermap.org
 </br>OpenWeatherMap(YOU_API_KEY);
 </br>   or 
 </br>    OpenWeatherMap(YOU_API_KEY, UNITS, LANG) 
->        UNITS can be: "imperial","metric", "kelvin"
+>        UNITS can be: OpenWeatherMap.Units.imperial, OpenWeatherMap.Units.metric, OpenWeatherMap.Units.kelvin
 >        LANG can be: "ru", "us" , "pl", "zh_cn" and other, you can find it on openweathermap.org
 example(there is not work random key, change it on your key!): 
 
     OpenWeatherMap weather = new OpenWeatherMap("d312d32131d314fcd4214d124d14"); 
     //or 
-    OpenWeatherMap weather = new OpenWeatherMap("d312d32131d314fcd4214d124d14", "metric", "ru"); 
+    OpenWeatherMap weather = new OpenWeatherMap("d312d32131d314fcd4214d124d14", OpenWeatherMap.Units.metric, "ru"); 
 
    
  
