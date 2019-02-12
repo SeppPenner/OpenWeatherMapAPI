@@ -20,26 +20,22 @@ namespace OpenWeatherMapApi
         /// </summary>
         public string Lang { get { return lang.Split('=')[1]; } set { lang = "&lang=" + value; } }
 
+      
+        public enum Units { kelvin, metric, imperial};
+        public Units unit = Units.metric;
 
-
-        private string units = "&units=metric";
-        /// <summary>
-        /// Units of request, can be Fahrenheit(use "imperial") or Celsius(use "metric") or Kelvin(use "kelvin")
-        /// </summary>
-        public string Units
+        public string SetUnits(Units _unit)
         {
-            get { if (units == null) return "kelvin"; else return units.Split('=')[1]; }
-            set
-            {
-                if (value == "imperial" || value == "metric") units = "&units=" + value;
-                else if (value == "kelvin") units = null;
-            }
+            if (_unit == Units.metric)
+                return "&units=metric";
+            else if (_unit == Units.imperial)
+                return "&units=imperial";
+            else
+                return null;
         }
+       
 
         public WebProxy proxy; //прокси
-
-
-
 
         private bool useProxy { get; set; }
         /// <summary>
@@ -62,12 +58,12 @@ namespace OpenWeatherMapApi
         /// Init with special params
         /// </summary>
         /// <param name="_token">your token</param>
-        /// <param name="_units">temp units (can be Fahrenheit(use "imperial") or Celsius(use "metric") or Kelvin(use "kelvin")) </param>
+        /// <param name="_units">temp units (can be Fahrenheit(use "OpenWeatherMap.Unit.imperial") or Celsius(use "OpenWeatherMap.Unit.metric ") or Kelvin(use "OpenWeatherMap.Unit.kelvin")) </param>
         /// <param name="_lang">set lang (Arabic - ar, Bulgarian - bg, Catalan - ca, Czech - cz, German - de, Greek - el, English - en, Persian (Farsi) - fa, Finnish - fi, French - fr, Galician - gl, Croatian - hr, Hungarian - hu, Italian - it, Japanese - ja, Korean - kr, Latvian - la, Lithuanian - lt, Macedonian - mk, Dutch - nl, Polish - pl, Portuguese - pt, Romanian - ro, Russian - ru, Swedish - se, Slovak - sk, Slovenian - sl, Spanish - es, Turkish - tr, Ukrainian - ua, Vietnamese - vi, Chinese Simplified - zh_cn, Chinese Traditional - zh_tw.)</param>
-        public OpenWeatherMap(string _token, string _units, string _lang)
+        public OpenWeatherMap(string _token, Units _units, string _lang)
         {
             token = _token;
-            Units = _units;
+            unit = _units;
             Lang = _lang;
         }
 
@@ -109,7 +105,7 @@ namespace OpenWeatherMapApi
                 openWeatherLink 
                 + _dataRequestType 
                 + processedLocation(_location) 
-                + lang + units
+                + lang + SetUnits(unit)
                 + "&appid=" + token); //concat request link
             if (useProxy) httpWebRequest.Proxy = proxy; //если стоит флаг использования прокси то используем
             HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse(); //делаем запрос

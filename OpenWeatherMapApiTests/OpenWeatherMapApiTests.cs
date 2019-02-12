@@ -18,10 +18,9 @@ namespace OpenWeatherMapApi.Tests
             OpenWeatherMap OWM = new OpenWeatherMap(Token);
             OWM.Lang = "us";
             Assert.AreEqual("us", OWM.Lang);
-            OWM.Units = "metric";
-            Assert.AreEqual("metric", OWM.Units);
-            OWM.Units = "failUnits";
-            Assert.AreNotEqual("failUnits", OWM.Units);
+            OWM.unit = OpenWeatherMap.Units.metric;
+            Assert.AreEqual("&units=metric", OWM.SetUnits(OWM.unit));
+         
         }
 
         [TestMethod()]

@@ -8,8 +8,8 @@ namespace Example
     {
         static void Main(string[] args)
         {
-            OpenWeatherMap weather = new OpenWeatherMap("apiKey", "metric", "us");
-
+            OpenWeatherMap weather = new OpenWeatherMap("Token", OpenWeatherMap.Units.metric , "us");
+           
             // (!) I use a proxy, because my server is in the corporate networkwork
             //weather.proxy = new System.Net.WebProxy("proxy:3128");
             //weather.UseProxy = true;
