@@ -38,7 +38,7 @@ example(there is not work random key, change it on your key!):
 
 ## Additionally functions 
  GenerateRequestLink(RequestType requestType, string _location) - return you http request link
- RequestType can be = RequestType.current , RequestType.forecast 
+ </br> RequestType can be = RequestType.current , RequestType.forecast 
  
  example:
  
