@@ -41,5 +41,6 @@ example(there is not work random key, change it on your key!):
  RequestType can be = RequestType.current , RequestType.forecast 
  
  example:
+ 
      GenerateRequestLink(RequestType.current,"Moscow"));
 
