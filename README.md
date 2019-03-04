@@ -38,9 +38,9 @@ example(there is not work random key, change it on your key!):
 
 ## Additionally functions 
  GenerateRequestLink(RequestType requestType, string _location) - return you http request link
- </br> RequestType can be = RequestType.current , RequestType.forecast 
+ </br> RequestType can be = OpenWeatherMap.RequestType.current , OpenWeatherMap.RequestType.forecast 
  
  example:
  
-     GenerateRequestLink(RequestType.current,"Moscow"));
+     GenerateRequestLink(OpenWeatherMap.RequestType.current,"Moscow"));
 
