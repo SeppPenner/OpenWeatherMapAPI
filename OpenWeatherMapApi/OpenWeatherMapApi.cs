@@ -22,6 +22,7 @@ namespace OpenWeatherMapApi
 
       
         public enum Units { kelvin, metric, imperial};
+        public enum RequestType { forecast, current };
         public Units unit = Units.metric;
 
         public string SetUnits(Units _unit)
@@ -76,7 +77,7 @@ namespace OpenWeatherMapApi
         /// <returns></returns>
         public Current Current(string _location)
         {
-            string response = Download("weather?" , _location );
+            string response = Download(RequestType.current, _location );
             Current processedResponse = JsonConvert.DeserializeObject<Current>(response);
             return processedResponse;
         }
@@ -87,7 +88,7 @@ namespace OpenWeatherMapApi
         /// <returns></returns>
         public Forecast Forecast(string _location)
         {
-            string response = Download("forecast?", _location);
+            string response = Download(RequestType.forecast , _location);
             Forecast processedResponse = JsonConvert.DeserializeObject<Forecast>(response);
             return processedResponse;
         }
@@ -99,14 +100,10 @@ namespace OpenWeatherMapApi
         /// <param name="_dataRequestType"> accordance with conditions openWeatherMap </param>
         /// <param name="_location">location</param>
         /// <returns></returns>
-        private string Download(string _dataRequestType, string _location)
+        private string Download(RequestType _requestType, string _location)
         {
             HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(
-                openWeatherLink 
-                + _dataRequestType 
-                + processedLocation(_location) 
-                + lang + SetUnits(unit)
-                + "&appid=" + token); //concat request link
+                GenerateRequestLink(_requestType, _location)); //
             if (useProxy) httpWebRequest.Proxy = proxy; //если стоит флаг использования прокси то используем
             HttpWebResponse httpWebResponse = (HttpWebResponse)httpWebRequest.GetResponse(); //делаем запрос
             string response;
@@ -116,7 +113,19 @@ namespace OpenWeatherMapApi
             }
             return response;
         }
-
+        /// <summary>
+        /// генерация строки запроса
+        /// </summary>
+        /// <returns>строку</returns>
+        public string GenerateRequestLink(RequestType requestType, string _location)
+        {
+            string stringRequestType = (requestType == RequestType.current) ? "weather?" : "forecast?";
+            return openWeatherLink
+                + stringRequestType
+                + processedLocation(_location)
+                + lang + SetUnits(unit)
+                + "&appid=" + token;
+        }
 
         /// <summary>
         /// preparation "location name" accordance with conditions openWeatherMap
@@ -137,6 +146,8 @@ namespace OpenWeatherMapApi
             }
         }
 
+
+  
 
 
     }

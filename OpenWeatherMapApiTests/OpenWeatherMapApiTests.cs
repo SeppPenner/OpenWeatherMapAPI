@@ -11,7 +11,7 @@ namespace OpenWeatherMapApi.Tests
     [TestClass()]
     public class OpenWeatherMapApi
     {
-        string Token = "Token"; //token from OpenWeatherMap
+        string Token = "0d49f0f17ba0dcaa80d206b0d74d5a5e"; //token from OpenWeatherMap
         [TestMethod()]
         public void SetParams()
         {
