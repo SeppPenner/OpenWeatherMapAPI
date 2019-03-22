@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>ET.OpenWeatherMap</id>
+    <version>0.0.1.0</version>
+    <title>OpenWeatherMap</title>
+    <authors>Eliseev Eugene</authors>
+    <owners>Eliseev Eugene</owners>
+    <projectUrl>https://github.com/eliseevTech/OpenWeatherMapAPI</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>Simple release of openweathermap api</description>
+    <releaseNotes>first version</releaseNotes>
+    <copyright>Copyright 2019</copyright>
+    <tags>ETLog Logger</tags>
+  </metadata>
+</package>
