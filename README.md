@@ -36,4 +36,11 @@ example(there is not work random key, change it on your key!):
             Console.WriteLine( @"{0} {1} : {2}C°, {3}", cityName, new DateTime(1970, 1, 1, 0, 0, 0, 0).AddSeconds(list.dt), list.main.temp , list.weather.First().description);
         }
 
+## Additionally functions 
+ GenerateRequestLink(RequestType requestType, string _location) - return you http request link
+ </br> RequestType can be = OpenWeatherMap.RequestType.current , OpenWeatherMap.RequestType.forecast 
+ 
+ example:
+ 
+     GenerateRequestLink(OpenWeatherMap.RequestType.current,"Moscow"));
 
